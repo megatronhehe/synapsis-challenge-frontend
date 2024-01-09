@@ -1,6 +1,9 @@
 import { CommentType } from "@/types/CommentType";
 import Link from "next/link";
+import Comment from "@/components/Comment";
+import { PiCaretLeft, PiUser } from "react-icons/pi";
 
+// fetch comments based on post id
 async function getComments(postId: number) {
 	const response = await fetch(
 		`https://gorest.co.in/public/v2/posts/${postId}/comments`
@@ -9,6 +12,7 @@ async function getComments(postId: number) {
 	return data;
 }
 
+// fetch blog based on post id
 async function getBlog(postId: number) {
 	const response = await fetch(
 		`https://gorest.co.in/public/v2/posts/${postId}`
@@ -24,34 +28,47 @@ export default async function blogDetails({
 	params: { id: number };
 	searchParams: { user_id: number };
 }) {
-	const comments = await getComments(params.id);
-	const blog = await getBlog(params.id);
+	// fetch data barengan
+	const [comments, blog] = await Promise.all([
+		getComments(params.id),
+		getBlog(params.id),
+	]);
 
 	return (
 		<main className="font-light flex justify-center text-gray-600">
-			<div className="max-w-3xl w-full p-4 flex flex-col gap-4">
-				<Link href="/">back</Link>
+			<div className="max-w-3xl w-full p-4 flex flex-col gap-8">
+				<Link
+					href="/"
+					className="w-18 text-sm text-gray-400 hover:-ml-2 duration-200 hover:text-gray-600 flex items-center gap-2"
+				>
+					<PiCaretLeft /> Back
+				</Link>
 
-				<section className="flex flex-col gap-4">
-					<h1 className="text-2xl text-center flex flex-col">
-						{blog.title}
-						<span className="text-lg">
-							{" "}
-							written by - user {searchParams.user_id}
-						</span>
-					</h1>
+				<section className="flex items-center gap-4 ">
+					<figure className="aspect-square w-12 text-3xl flex items-center justify-center rounded-full bg-gray-100">
+						<PiUser />
+					</figure>
+					<p>user {searchParams.user_id} (author)</p>
+				</section>
+
+				<section className="flex border-b pb-8 flex-col gap-4">
+					<h1 className="text-2xl font-semibold flex flex-col">{blog.title}</h1>
 					<p>{blog.body}</p>
 				</section>
 
 				<section>
-					<h2>Comments</h2>
-					<ul className="flex flex-col gap-4 mt-4">
-						{comments?.map((comment: CommentType) => (
-							<li key={comment.id}>
-								{comment.name} - {comment.body}
-							</li>
-						))}
-					</ul>
+					<h2 className="text-center">Comments</h2>
+					{comments.length > 0 ? (
+						<ul className="flex flex-col gap-4 mt-4 text-sm">
+							{comments?.map((comment: CommentType) => (
+								<Comment key={comment.id} comment={comment} />
+							))}
+						</ul>
+					) : (
+						<div className="text-center mt-12 text-gray-400">
+							No comments on this blog yet...
+						</div>
+					)}
 				</section>
 			</div>
 		</main>

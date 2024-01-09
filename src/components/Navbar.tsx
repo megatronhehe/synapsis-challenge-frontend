@@ -6,8 +6,9 @@ export default function Navbar() {
 			<nav className="flex justify-center">
 				<ul className="max-w-3xl w-full p-4 flex justify-between items-center text-sm">
 					<li>
-						<Link href="/" className="text-xl ">
-							Synapsis.Blog
+						<Link href="/" className="text-xl">
+							Synapsis
+							<span className="font-semibold text-blue-400">.Blogs</span>
 						</Link>
 					</li>
 					<div className="flex gap-6">
