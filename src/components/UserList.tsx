@@ -10,6 +10,9 @@ export default async function UserList({
 		query?: string;
 	};
 }) {
+	// sengaja delay to show skeleton when loading
+	await new Promise((resolve) => setTimeout(resolve, 1000));
+
 	const users = await getUsers(searchParams?.query || "");
 
 	return (

@@ -5,7 +5,7 @@ import BlogCard from "./BlogCard";
 
 export default async function BlogsList() {
 	// sengaja delay to show skeleton when loading
-	await new Promise((resolve) => setTimeout(resolve, 1000));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 
 	const blogs = await getBlogs();
 

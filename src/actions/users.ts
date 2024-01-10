@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 
-// pake tokenku aja, mau ganti silakan
+// pake tokenku aja, tapi kalo mau ganti gapapa
 const token =
 	"93403ef75511fa7689d5dc3fc06012bf80cb97debeae9aac03209def5065533b";
 
@@ -32,7 +32,7 @@ export async function getUsers(query: string) {
 		const response = await fetch(
 			`https://gorest.co.in/public/v2/users?name=${queryParams}`,
 			{
-				cache: "no-store",
+				// cache: "no-store",
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
