@@ -11,7 +11,7 @@ export default async function UserList({
 	};
 }) {
 	// sengaja delay to show skeleton when loading
-	await new Promise((resolve) => setTimeout(resolve, 1000));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 
 	const users = await getUsers(searchParams?.query || "");
 
