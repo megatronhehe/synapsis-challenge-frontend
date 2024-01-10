@@ -1,11 +1,6 @@
+import { getBlogs } from "@/actions/blogs";
 import BlogCard from "@/components/BlogCard";
 import { BlogType } from "@/types/BlogType";
-
-async function getBlogs() {
-	const response = await fetch("https://gorest.co.in/public/v2/posts");
-	const data = await response.json();
-	return data;
-}
 
 export default async function Home() {
 	const blogs = await getBlogs();

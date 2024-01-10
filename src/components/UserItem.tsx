@@ -2,13 +2,13 @@
 
 import { UserType } from "@/types/UserType";
 import { PiTrash, PiNotePencil } from "react-icons/pi";
+import { deleteUser } from "@/actions/users";
 
 type UserItemProps = {
 	user: UserType;
-	deleteUser: (userId: number) => Promise<void>;
 };
 
-export default function UserItem({ user, deleteUser }: UserItemProps) {
+export default function UserItem({ user }: UserItemProps) {
 	const firstLetter = user.name[0].toUpperCase();
 
 	return (
@@ -18,7 +18,7 @@ export default function UserItem({ user, deleteUser }: UserItemProps) {
 		>
 			{/* user info here */}
 			<div className="flex gap-4">
-				<figure className="relative aspect-square w-14 rounded-full bg-gray-100 flex items-center justify-center text-2xl">
+				<figure className="relative aspect-square w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-2xl">
 					{firstLetter}
 					<div
 						className={`absolute top-0 right-0 w-3 h-3 rounded-full ${

@@ -1,6 +1,6 @@
 "use client";
 
-import { createUser } from "@/app/actions";
+import { createUser } from "@/actions/users";
 import { useRef } from "react";
 
 export default function CreateUserForm() {
