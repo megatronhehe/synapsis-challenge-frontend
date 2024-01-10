@@ -1,11 +1,14 @@
+"use client";
+
 import { UserType } from "@/types/UserType";
 import { PiTrash, PiNotePencil } from "react-icons/pi";
 
 type UserItemProps = {
 	user: UserType;
+	deleteUser: (userId: number) => Promise<void>;
 };
 
-export default function UserItem({ user }: UserItemProps) {
+export default function UserItem({ user, deleteUser }: UserItemProps) {
 	const firstLetter = user.name[0].toUpperCase();
 
 	return (
@@ -32,7 +35,10 @@ export default function UserItem({ user }: UserItemProps) {
 				<button className="w-8 h-8 flex items-center justify-center bg-blue-300 text-white rounded-lg hover:bg-blue-400 duration-200">
 					<PiNotePencil />
 				</button>
-				<button className="w-8 h-8 flex items-center justify-center bg-red-300 text-white rounded-lg hover:bg-red-400 duration-200">
+				<button
+					onClick={() => deleteUser(user.id)}
+					className="w-8 h-8 flex items-center justify-center bg-red-300 text-white rounded-lg hover:bg-red-400 duration-200"
+				>
 					<PiTrash />
 				</button>
 			</div>
