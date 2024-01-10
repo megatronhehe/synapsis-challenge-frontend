@@ -28,6 +28,9 @@ export default function SearchForm() {
 				<PiMagnifyingGlass />
 			</div>
 			<input
+				id="search"
+				name="search"
+				type="text"
 				onChange={(e) => handleSearch(e.target.value)}
 				defaultValue={searchParams.get("query")?.toString()}
 				placeholder="search user's name here ..."

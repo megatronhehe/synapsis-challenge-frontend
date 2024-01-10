@@ -45,7 +45,7 @@ export default function EditFormModal({
 							type="text"
 							name="name"
 							defaultValue={name}
-							autoComplete="full-name"
+							autoComplete="on"
 							className="px-3 py-2 outline-none w-full border rounded-xl mt-2"
 						/>
 					</div>
@@ -57,7 +57,7 @@ export default function EditFormModal({
 							type="email"
 							name="email"
 							defaultValue={email}
-							autoComplete="email"
+							autoComplete="on"
 							className="px-3 py-2 outline-none w-full border rounded-xl mt-2"
 						/>
 					</div>
@@ -70,7 +70,7 @@ export default function EditFormModal({
 								name="gender"
 								defaultValue={gender}
 								className="px-3 py-2 outline-none w-full border rounded-xl mt-2"
-								autoComplete="gender"
+								autoComplete="off"
 							>
 								<option value={gender}>{gender}</option>
 								<option value={gender === "male" ? "female" : "male"}>
@@ -85,7 +85,7 @@ export default function EditFormModal({
 								name="status"
 								defaultValue={status}
 								className="px-3 py-2 outline-none w-full border rounded-xl mt-2"
-								autoComplete="status"
+								autoComplete="off"
 							>
 								<option value={status}>{status}</option>
 								<option value={status === "active" ? "inactive" : "active"}>

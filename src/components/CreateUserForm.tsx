@@ -30,6 +30,7 @@ export default function CreateUserForm() {
 						name="name"
 						placeholder="input name here..."
 						required
+						autoComplete="on"
 						className="border px-3 py-2 outline-none rounded-xl sm:w-1/2 focus:border-blue-400 hover:border-gray-500 duration-200"
 					/>
 					<input
@@ -37,6 +38,7 @@ export default function CreateUserForm() {
 						name="email"
 						placeholder="input email here..."
 						required
+						autoComplete="on"
 						className="border px-3 py-2 outline-none rounded-xl sm:w-1/2 focus:border-blue-400 hover:border-gray-500 duration-200"
 					/>
 				</div>
@@ -44,6 +46,7 @@ export default function CreateUserForm() {
 					<select
 						name="gender"
 						required
+						autoComplete="off"
 						className="outline-none px-3 py-2 border w-1/2 rounded-xl hover:border-gray-500 duration-200"
 					>
 						<option>-- select gender --</option>
@@ -53,6 +56,7 @@ export default function CreateUserForm() {
 					<select
 						name="status"
 						required
+						autoComplete="off"
 						className="outline-none px-3 py-2 border w-1/2 rounded-xl hover:border-gray-500 duration-200"
 					>
 						<option>-- select status --</option>

@@ -7,7 +7,6 @@ export default async function Users({
 }: {
 	searchParams?: {
 		query?: string;
-		//   page?: string;
 	};
 }) {
 	return (
