@@ -25,17 +25,23 @@ export async function createUser(formData: FormData) {
 }
 
 // FETHCCH USER
-export async function getUsers() {
+export async function getUsers(query: string) {
+	const queryParams = query ? query : "";
+
 	try {
-		const response = await fetch(`https://gorest.co.in/public/v2/users`, {
-			cache: "no-store",
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		});
+		const response = await fetch(
+			`https://gorest.co.in/public/v2/users?name=${queryParams}`,
+			{
+				cache: "no-store",
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 
 		const data = await response.json();
 
+		revalidatePath("/users");
 		return data;
 	} catch (error) {
 		console.log(error);

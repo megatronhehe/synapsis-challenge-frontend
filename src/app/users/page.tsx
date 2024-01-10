@@ -1,9 +1,15 @@
 import CreateUserForm from "@/components/CreateUserForm";
+import SearchForm from "@/components/SearchForm";
 import UserList from "@/components/UserList";
 
-import { PiMagnifyingGlass } from "react-icons/pi";
-
-export default async function users() {
+export default async function Users({
+	searchParams,
+}: {
+	searchParams?: {
+		query?: string;
+		//   page?: string;
+	};
+}) {
 	return (
 		<main className="font-light flex justify-center text-gray-600">
 			<div className="max-w-3xl w-full p-4 flex flex-col gap-4">
@@ -11,12 +17,9 @@ export default async function users() {
 
 				<CreateUserForm />
 
-				<div className="border-b pb-2 flex items-center gap-2">
-					<PiMagnifyingGlass />
-					<h2 className="text-sm">search user</h2>
-				</div>
+				<SearchForm />
 
-				<UserList />
+				<UserList searchParams={searchParams} />
 			</div>
 		</main>
 	);
