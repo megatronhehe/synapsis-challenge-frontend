@@ -3,13 +3,16 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { PiMagnifyingGlass } from "react-icons/pi";
+import { useDebouncedCallback } from "use-debounce";
 
 export default function SearchForm() {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
 
-	function handleSearch(searchInput: string) {
+	const handleSearch = useDebouncedCallback((searchInput) => {
+		console.log(searchInput);
+
 		const params = new URLSearchParams(searchParams);
 		if (searchInput) {
 			params.set("query", searchInput);
@@ -17,7 +20,7 @@ export default function SearchForm() {
 			params.delete("query");
 		}
 		replace(`${pathname}?${params.toString()}`);
-	}
+	}, 300);
 
 	return (
 		<div className="border-b pb-2 flex items-center gap-2">
