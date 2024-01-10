@@ -1,21 +1,16 @@
-import { getBlogs } from "@/actions/blogs";
-import BlogCard from "@/components/BlogCard";
-import { BlogType } from "@/types/BlogType";
+import BlogsList from "@/components/BlogsList";
+import BlogsListSkeleton from "@/components/skeletons/BlogsListSkeleton";
+import { Suspense } from "react";
 
 export default async function Home() {
-	const blogs = await getBlogs();
-
 	return (
 		<main className="font-light flex justify-center text-gray-600">
 			<div className="max-w-3xl w-full p-4">
 				<h1 className="text-xl text-center mb-4">All Blogs Page</h1>
 
-				{/* display blogs */}
-				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
-					{blogs?.map((blog: BlogType) => (
-						<BlogCard key={blog.id} blog={blog} />
-					))}
-				</div>
+				<Suspense fallback={<BlogsListSkeleton />}>
+					<BlogsList />
+				</Suspense>
 			</div>
 		</main>
 	);
