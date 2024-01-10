@@ -14,8 +14,9 @@ export default function UserItem({ user, deleteUser }: UserItemProps) {
 	return (
 		<li
 			key={user.id}
-			className="p-2 border rounded-xl flex items-top justify-between hover:border-gray-400 duration-200"
+			className="p-2 border rounded-xl sm:flex-row flex-col flex items-top justify-between hover:border-gray-400 duration-200"
 		>
+			{/* user info here */}
 			<div className="flex gap-4">
 				<figure className="relative aspect-square w-14 rounded-full bg-gray-100 flex items-center justify-center text-2xl">
 					{firstLetter}
@@ -31,7 +32,9 @@ export default function UserItem({ user, deleteUser }: UserItemProps) {
 					<p className="text-xs">{user.gender}</p>
 				</div>
 			</div>
-			<div className="flex self-start text-xl gap-2">
+
+			{/* action button */}
+			<div className="flex sm:self-start self-end text-xl gap-2">
 				<button className="w-8 h-8 flex items-center justify-center bg-blue-300 text-white rounded-lg hover:bg-blue-400 duration-200">
 					<PiNotePencil />
 				</button>
