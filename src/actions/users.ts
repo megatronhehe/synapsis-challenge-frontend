@@ -42,6 +42,24 @@ export async function getUsers() {
 	}
 }
 
+// UPDATE USER
+export async function updateUser(formData: FormData, userId: number) {
+	try {
+		await fetch(`https://gorest.co.in/public/v2/users/${userId}`, {
+			method: "PATCH",
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+			body: formData,
+		});
+
+		// reveal changes on users list
+		revalidatePath("/users");
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 // DELETE USER
 export async function deleteUser(userId: number) {
 	try {
