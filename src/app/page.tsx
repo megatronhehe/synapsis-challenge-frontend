@@ -6,10 +6,10 @@ import { Suspense } from "react";
 export default async function Home({
 	searchParams,
 }: {
-	searchParams: { page: number };
+	searchParams?: { page?: number };
 }) {
 	// kalo gada params set current page to 1 dalam bentuk number
-	const currentPage = searchParams.page ? +searchParams.page : 1;
+	const currentPage = searchParams?.page ? +searchParams.page : 1;
 
 	return (
 		<main className="font-light flex justify-center text-gray-600">

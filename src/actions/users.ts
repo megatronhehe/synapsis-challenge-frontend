@@ -25,12 +25,12 @@ export async function createUser(formData: FormData) {
 }
 
 // FETHCCH USER
-export async function getUsers(query: string) {
+export async function getUsers(query: string, page: number) {
 	const queryParams = query ? query : "";
 
 	try {
 		const response = await fetch(
-			`https://gorest.co.in/public/v2/users?name=${queryParams}`,
+			`https://gorest.co.in/public/v2/users?name=${queryParams}&page=${page}`,
 			{
 				// cache: "no-store",
 				headers: {

@@ -39,7 +39,7 @@ export default function Pagination({ currentPage }: PaginationProps) {
 			<button
 				onClick={prevPage}
 				disabled={currentPage === 1}
-				className="flex gap-1 items-center w-14 pl-2 hover:pr-2 hover:pl-0 duration-200 hover:font-medium"
+				className="flex gap-1 items-center w-14 pl-2 hover:pr-2 hover:pl-0 duration-200 hover:font-medium disabled:text-gray-300"
 			>
 				<PiCaretLeft /> prev
 			</button>
