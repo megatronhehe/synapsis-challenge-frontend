@@ -1,6 +1,6 @@
 import CreateUserForm from "@/components/CreateUserForm";
 import SearchForm from "@/components/SearchForm";
-import UserList from "@/components/UserList";
+import UsersList from "@/components/UsersList";
 import UsersListSkeleton from "@/components/skeletons/UsersListSkeleton";
 import { Suspense } from "react";
 
@@ -21,7 +21,7 @@ export default async function Users({
 				<SearchForm />
 
 				<Suspense fallback={<UsersListSkeleton />}>
-					<UserList searchParams={searchParams} />
+					<UsersList searchParams={searchParams} />
 				</Suspense>
 			</div>
 		</main>

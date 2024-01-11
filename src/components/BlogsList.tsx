@@ -3,11 +3,15 @@ import { BlogType } from "@/types/BlogType";
 import React from "react";
 import BlogCard from "./BlogCard";
 
-export default async function BlogsList() {
+type PaginationProps = {
+	currentPage: number;
+};
+
+export default async function BlogsList({ currentPage }: PaginationProps) {
 	// sengaja delay to show skeleton when loading
 	await new Promise((resolve) => setTimeout(resolve, 500));
 
-	const blogs = await getBlogs();
+	const blogs = await getBlogs(currentPage);
 
 	return (
 		<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">

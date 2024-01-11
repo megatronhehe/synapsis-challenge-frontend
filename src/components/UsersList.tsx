@@ -3,7 +3,7 @@ import UserItem from "./UserItem";
 import { UserType } from "@/types/UserType";
 import { getUsers } from "@/actions/users";
 
-export default async function UserList({
+export default async function UsersList({
 	searchParams,
 }: {
 	searchParams?: {
