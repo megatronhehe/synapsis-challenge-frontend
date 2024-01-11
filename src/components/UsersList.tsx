@@ -32,7 +32,9 @@ export default async function UsersList({
 	if (users.length < 1) {
 		return (
 			<div className="text-center my-24 text-gray-400">
-				No user with the name '{searchParams?.query}' was found...
+				No user with the name {"'"}
+				{searchParams?.query}
+				{"'"} was found...
 			</div>
 		);
 	}
