@@ -2,31 +2,12 @@ import { CommentType } from "@/types/CommentType";
 import Link from "next/link";
 import CommentItem from "@/components/CommentItem";
 import { PiCaretLeft, PiUser } from "react-icons/pi";
-
-// fetch comments based on post id
-async function getComments(postId: number) {
-	const response = await fetch(
-		`https://gorest.co.in/public/v2/posts/${postId}/comments`
-	);
-	const data = await response.json();
-	return data;
-}
-
-// fetch blog based on post id
-async function getBlog(postId: number) {
-	const response = await fetch(
-		`https://gorest.co.in/public/v2/posts/${postId}`
-	);
-	const data = await response.json();
-	return data;
-}
+import { getBlog, getComments } from "@/actions/blogs";
 
 export default async function blogDetails({
 	params,
-	searchParams,
 }: {
 	params: { id: number };
-	searchParams: { user_id: number };
 }) {
 	// fetch data barengan
 	const [comments, blog] = await Promise.all([
@@ -48,7 +29,7 @@ export default async function blogDetails({
 					<figure className="aspect-square w-12 text-3xl flex items-center justify-center rounded-full bg-gray-100">
 						<PiUser />
 					</figure>
-					<p>user {searchParams.user_id} (author)</p>
+					<p>user {blog.user_id} (author)</p>
 				</section>
 
 				<section className="flex border-b pb-8 flex-col gap-4">

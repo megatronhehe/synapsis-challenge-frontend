@@ -7,11 +7,11 @@ type BlogCardProps = {
 };
 
 export default function BlogCard({ blog }: BlogCardProps) {
-	const { id, title, user_id } = blog;
+	const { id, title } = blog;
 
 	return (
 		<Link
-			href={`/blog-details/${id}?user_id=${user_id}`}
+			href={`/blog-details/${id}`}
 			className="border text-sm p-4 h-32 rounded-xl flex flex-col justify-between shadow-sm hover:rounded-none duration-200 hover:border-blue-400 group"
 		>
 			<h2 className="">{title}</h2>
