@@ -5,3 +5,7 @@
 body {
 	background-color: white;
 }
+
+html {
+	overflow-y: scroll;
+}
