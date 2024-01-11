@@ -29,9 +29,13 @@ export default function Pagination({ currentPage }: PaginationProps) {
 
 		const pageSub1 = currentPage - 1;
 
-		params.set("page", `${pageSub1}`);
-
-		replace(`${pathname}?${params.toString()}`);
+		if (currentPage === 2) {
+			params.delete("page");
+			replace(`${pathname}`);
+		} else {
+			params.set("page", `${pageSub1}`);
+			replace(`${pathname}?${params.toString()}`);
+		}
 	}
 
 	return (
