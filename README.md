@@ -1,16 +1,17 @@
 
-## Synapsis.id Frontend Engineer Internship Challenge
+# Synapsis.id Frontend Engineer Internship Challenge
 
-# cara install
+## cara install
 - pastikan versi node js diatas 18.17.0. kalau belum, install dulu -> https://nodejs.org/en (chocolatey tidak perlu di install).
 - download repo.
-- extract here.
+- extract file zipnya nanti muncul folder "synapsisid-challenge-frontend-main".
+- buka visual studio code.
+- open folder "synapsisid-challenge-frontend-main".
 - buka terminal.
-- pastikan di folder "synapsisid-challenge".
 - ketik "npm install" di terminal.
 - tunggu selesai install.
-- ketik "npm run dev"
-- ke browser dan ketik "localhost:3000"
+- ketik "npm run dev" di terminal.
+- buka browser dan ketik "localhost:3000"
 
 Terima kasih!
 Ida Bagus Satya Mahendra
