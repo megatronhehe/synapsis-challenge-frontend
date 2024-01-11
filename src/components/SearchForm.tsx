@@ -11,11 +11,12 @@ export default function SearchForm() {
 	const { replace } = useRouter();
 
 	const handleSearch = useDebouncedCallback((searchInput) => {
-		console.log(searchInput);
-
 		const params = new URLSearchParams(searchParams);
 		if (searchInput) {
 			params.set("query", searchInput);
+
+			// reset pagination to first page
+			params.set("page", "1");
 		} else {
 			params.delete("query");
 		}
