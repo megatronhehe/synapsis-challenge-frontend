@@ -19,7 +19,7 @@ export default async function Users({
 	const suspenseKey = `${searchParams?.query}-${currentPage}`;
 
 	return (
-		<main className="font-light flex justify-center text-gray-600">
+		<main className="font-light flex justify-center text-gray-600 min-h-screen">
 			<div className="max-w-3xl w-full p-4 flex flex-col gap-4">
 				<h1 className="text-xl text-center ">Users Page</h1>
 

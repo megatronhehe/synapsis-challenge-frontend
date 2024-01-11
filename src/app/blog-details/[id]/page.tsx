@@ -35,7 +35,7 @@ export default async function blogDetails({
 	]);
 
 	return (
-		<main className="font-light flex justify-center text-gray-600">
+		<main className="font-light flex justify-center text-gray-600 min-h-screen">
 			<div className="max-w-3xl w-full p-4 flex flex-col gap-8">
 				<Link
 					href="/"
