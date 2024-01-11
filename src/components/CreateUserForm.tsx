@@ -2,6 +2,7 @@
 
 import { createUser } from "@/actions/users";
 import { useRef } from "react";
+import CreateUserButton from "./CreateUserButton";
 
 export default function CreateUserForm() {
 	const ref = useRef<HTMLFormElement>(null);
@@ -64,9 +65,7 @@ export default function CreateUserForm() {
 						<option value="inactive">inactive</option>
 					</select>
 				</div>
-				<button className="py-2 bg-green-300 text-white rounded-xl">
-					create user
-				</button>
+				<CreateUserButton />
 			</form>
 		</div>
 	);

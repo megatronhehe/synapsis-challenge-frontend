@@ -2,6 +2,7 @@ import { updateUser } from "@/actions/users";
 import { UserType } from "@/types/UserType";
 import { Dispatch, SetStateAction } from "react";
 import { PiX } from "react-icons/pi";
+import ConfirmEditUserButton from "./ConfirmEditUserButton";
 
 type EditFormModalProps = {
 	setToggleModal: Dispatch<SetStateAction<boolean>>;
@@ -94,9 +95,7 @@ export default function EditFormModal({
 							</select>
 						</div>
 					</div>
-					<button className="bg-green-300 text-white py-2 rounded-xl">
-						Confirm Changes
-					</button>
+					<ConfirmEditUserButton />
 				</form>
 			</div>
 		</div>
