@@ -16,6 +16,8 @@ export default async function Users({
 	// kalo gada params set current page to 1 dalam bentuk number
 	const currentPage = searchParams?.page ? +searchParams.page : 1;
 
+	const suspenseKey = `${searchParams?.query}-${currentPage}`;
+
 	return (
 		<main className="font-light flex justify-center text-gray-600">
 			<div className="max-w-3xl w-full p-4 flex flex-col gap-4">
@@ -25,10 +27,7 @@ export default async function Users({
 
 				<SearchForm />
 
-				<Suspense
-					key={[searchParams?.query, currentPage]}
-					fallback={<UsersListSkeleton />}
-				>
+				<Suspense key={suspenseKey} fallback={<UsersListSkeleton />}>
 					<UsersList searchParams={searchParams} currentPage={currentPage} />
 				</Suspense>
 
