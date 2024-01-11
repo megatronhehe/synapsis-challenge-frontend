@@ -20,7 +20,7 @@ export default async function blogDetails({
 			<div className="max-w-3xl w-full p-4 flex flex-col gap-8">
 				<Link
 					href="/"
-					className="w-18 text-sm text-gray-400 hover:-ml-2 duration-200 hover:text-gray-600 flex items-center gap-2"
+					className="w-18 text-sm w-16 text-gray-400 hover:-ml-2 duration-200 hover:text-gray-600 flex items-center gap-2"
 				>
 					<PiCaretLeft /> Back
 				</Link>
@@ -29,7 +29,10 @@ export default async function blogDetails({
 					<figure className="aspect-square w-12 text-3xl flex items-center justify-center rounded-full bg-gray-100">
 						<PiUser />
 					</figure>
-					<p>user {blog.user_id} (author)</p>
+					<div className="">
+						<p>user {blog.user_id}</p>
+						<p className="text-xs font-semibold text-blue-400">(author)</p>
+					</div>
 				</section>
 
 				<section className="flex border-b pb-8 flex-col gap-4">
