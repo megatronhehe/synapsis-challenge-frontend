@@ -1,6 +1,6 @@
 import { CommentType } from "@/types/CommentType";
 import Link from "next/link";
-import Comment from "@/components/Comment";
+import CommentItem from "@/components/CommentItem";
 import { PiCaretLeft, PiUser } from "react-icons/pi";
 
 // fetch comments based on post id
@@ -61,7 +61,7 @@ export default async function blogDetails({
 					{comments.length > 0 ? (
 						<ul className="flex flex-col gap-4 mt-4 text-sm">
 							{comments?.map((comment: CommentType) => (
-								<Comment key={comment.id} comment={comment} />
+								<CommentItem key={comment.id} comment={comment} />
 							))}
 						</ul>
 					) : (

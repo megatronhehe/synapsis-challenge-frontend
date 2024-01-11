@@ -5,7 +5,7 @@ type CommentProps = {
 	comment: CommentType;
 };
 
-export default function Comment({ comment }: CommentProps) {
+export default function CommentItem({ comment }: CommentProps) {
 	const { name, body, email } = comment;
 
 	return (

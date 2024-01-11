@@ -2,7 +2,7 @@
 
 import { createUser } from "@/actions/users";
 import { useRef } from "react";
-import CreateUserButton from "./CreateUserButton";
+import CreateUserButton from "./buttons/CreateUserButton";
 
 export default function CreateUserForm() {
 	const ref = useRef<HTMLFormElement>(null);

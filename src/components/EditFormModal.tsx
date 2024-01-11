@@ -2,7 +2,7 @@ import { updateUser } from "@/actions/users";
 import { UserType } from "@/types/UserType";
 import { Dispatch, SetStateAction } from "react";
 import { PiX } from "react-icons/pi";
-import ConfirmEditUserButton from "./ConfirmEditUserButton";
+import ConfirmEditUserButton from "./buttons/ConfirmEditUserButton";
 
 type EditFormModalProps = {
 	setToggleModal: Dispatch<SetStateAction<boolean>>;
