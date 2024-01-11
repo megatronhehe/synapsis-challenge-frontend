@@ -16,7 +16,7 @@ export default function SearchForm() {
 			params.set("query", searchInput);
 
 			// reset pagination to first page
-			params.set("page", "1");
+			params.delete("page");
 		} else {
 			params.delete("query");
 		}
