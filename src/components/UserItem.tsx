@@ -5,6 +5,7 @@ import { PiTrash, PiNotePencil } from "react-icons/pi";
 import { deleteUser } from "@/actions/users";
 import { useState } from "react";
 import EditFormModal from "./EditFormModal";
+import DeleteButton from "./buttons/DeleteButton";
 
 type UserItemProps = {
 	user: UserType;
@@ -46,12 +47,9 @@ export default function UserItem({ user }: UserItemProps) {
 					>
 						<PiNotePencil />
 					</button>
-					<button
-						onClick={() => deleteUser(user.id)}
-						className="w-8 h-8 flex items-center justify-center bg-red-300 text-white rounded-lg hover:bg-red-400 duration-200"
-					>
-						<PiTrash />
-					</button>
+					<form action={() => deleteUser(user.id)}>
+						<DeleteButton />
+					</form>
 				</div>
 			</li>
 
