@@ -13,6 +13,9 @@
 - ketik "npm run dev" di terminal.
 - buka browser dan ketik "localhost:3000"
 
+## live demo
+https://satyafechalllenge.vercel.app/
+
 Terima kasih!
 Ida Bagus Satya Mahendra
 [contact me](https://satyafedev.netlify.app/contact)
