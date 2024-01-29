@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { PiCaretLeft, PiCaretRight } from "react-icons/pi";
 
 type PaginationProps = {
@@ -11,6 +12,12 @@ export default function Pagination({ currentPage }: PaginationProps) {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const { replace } = useRouter();
+
+	useEffect(() => {
+		const params = new URLSearchParams(searchParams);
+		params.set("page", `${1}`);
+		replace(`${pathname}?${params.toString()}`);
+	}, []);
 
 	// next page function
 	function nextPage() {
